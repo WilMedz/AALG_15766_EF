@@ -25,34 +25,25 @@ def parentesis_optimos(divisiones, i, j):
         parentesis_optimos(divisiones, i, divisiones[i][j])
         parentesis_optimos(divisiones, divisiones[i][j] + 1, j)
         print(')', end='')
-        
-    dimensiones = [10, 30, 5, 60]
+
+       
+dimensiones = [10, 30, 5, 60]
     # solución óptima
+min_mult, costos, divisiones = multiplicacion_matrices_optima(dimensiones)
+
+print("\n*** SOLUCION OPTIMA ***")
+   
+print(f"Número mínimo de multiplicaciones: \n {min_mult}")
     
-    min_mult, costos, divisiones = multiplicacion_matrices_optima(dimensiones)
-
-    print("\n=== solución óptima para cadena de matrices ===")
-   
-    print(f"número mínimo de multiplicaciones escalares: {min_mult}")
+print("\n***Costos Mínimos***")
+for fila in costos:
+    print(fila)
     
-    #print("Parentización óptima: ", end='')
-    parentesis_optimos(divisiones, 0, len(dimensiones) - 2)
-    print("\n")
+print("\n*** Divisiones Óptimas ***")
+for fila in divisiones:
+    print(fila)
 
-    print("***Tabla de Costos Mínimos***")
-    for fila in costos:
-        print(fila)
-    
-    print("\n=== tabla de divisiones Óptimas ===")
-    for fila in divisiones:
-        print(fila)
-
-   
-   
-   
-   
-
-
+ 
 ##codigo programacion dinamica 
 def min_matriz_mult(dims):
     n = len(dims) - 1
